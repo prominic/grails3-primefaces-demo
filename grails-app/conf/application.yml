@@ -118,5 +118,5 @@ grails:
     plugins:
         primefaces:
                 beans:
-                   packages: com.company.demo.beans,com.company.demo2.beans
+                   packages: com.company.demo.beans
 

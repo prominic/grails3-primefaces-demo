@@ -8,7 +8,7 @@ This plugin was written and tested with Grails 3.3.3 and Java 8u131.
 
 ## Running the Example Interface
 
-Clone the [plugin project](TODO).
+Clone the [plugin project](https://github.com/prominic/grails3-primefaces).
 
 Install the plugin:
 
@@ -18,7 +18,7 @@ Install the plugin:
 Run this application:
 
     cd grails3-primefaces-demo
-    ./grailsw runApp    
+    ./grailsw run-app    
     
 Once the application finishes loading, check the interface at:  [http://localhost:8080/faces/anagraphic/home.xhtml](http://localhost:8080/faces/anagraphic/home.xhtml)
 
@@ -60,7 +60,6 @@ The resulting files are:
 ### Update Config.groovy
 
 Add the new package "demo.beans" to the grails.plugins.primefaces.beans.packages list in grails-app/conf/application.yml
-grails-app/conf/application.yml
 ```
 grails:
     plugins:
@@ -72,7 +71,6 @@ grails:
 
 
 Optionally, add this line to the bottom of grails-app/conf/logback.groovy to enable debugging output:
-grails-app/conf/logback.groovy
 ```
 logger('demo', DEBUG)
 ```
@@ -81,7 +79,6 @@ logger('demo', DEBUG)
 
 Add this code to grails-app/init/grails3primefacesapp/BootStrap.groovy
 ```
-grails-app/init/grails3primefacesapp/BootStrap.groovy
 ...
  
 import demo.Car
@@ -120,7 +117,7 @@ This code will run on startup and generate some Car objects to populate the data
 
 ### Create the XHTML file:
 
-Create src/main/web-app/car/home.xhtml:
+Create src/main/webapp/car/home.xhtml:
 ```
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
