@@ -1,0 +1,106 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+   
+<h:head>
+    <title>Anagraphic</title>
+</h:head>
+<h:body>
+    
+    
+    <script type="text/javascript" src="/grails-primefaces-demo/static/js/primefaces/locales/it.js" />  
+    
+    <h:form id="selectLanguage">
+        <p:panelGrid columns="2">
+            <h:outputText value="Lang" />
+            <p:selectOneMenu value="#{languageSwitcherBean.selectedLanguage}" onchange="document.getElementById('selectLanguage').submit();" >
+                <f:selectItems value="#{languageSwitcherBean.languages}" ></f:selectItems>
+            </p:selectOneMenu> 
+        </p:panelGrid>
+    </h:form>
+                
+    <h:form id="anagraphicsForm">
+        <p:growl id="messages" showDetail="true"/>
+
+        <p:dataTable id="anagraphicsDT" var="anagraphic" value="#{anagraphicMB.anagraphics}" selection="#{anagraphicMB.anagraphic}" rowKey="#{anagraphic.id}"
+                    rows="10" paginator="true" rowsPerPageTemplate="10,20,50" lazy="true" selectionMode="single"
+                    currentPageReportTemplate="#{message.i18n('primefaces.datatable.currentPageReportTemplate.label', '{startRecord}', '{endRecord}', '{totalRecords}')}"
+                    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+
+            <p:ajax event="rowSelect" listener="#{anagraphicMB.onRowSelect}" update=":anagraphicForm" oncomplete="PF('anagraphicDialog').show()" />
+        
+            <p:column headerText="ID" width="40" style="text-align: center;">
+                <h:outputText value="#{anagraphic.id}"/>
+            </p:column>
+			
+            <p:column headerText="#{message.i18n('anagraphic.firstName.label')}" sortBy="#{anagraphic.firstName}" filterBy="#{anagraphic.firstName}">
+                <h:outputText value="#{anagraphic.firstName}"/>
+            </p:column>
+            
+			<p:column headerText="#{message.i18n('anagraphic.surname.label')}" sortBy="#{anagraphic.surname}" filterBy="#{anagraphic.surname}">
+                <h:outputText value="#{anagraphic.surname}"/>
+            </p:column>
+            
+            <p:column width="150" style="text-align: center;">
+                <p:commandButton icon="ui-icon-trash" action="#{anagraphicMB.delete()}" update=":anagraphicsForm">
+                    <p:confirm header="#{message.i18n('default.delete.confirm.header')}" message="#{message.i18n('default.button.delete.confirm.message')}" icon="ui-icon-alert" />
+                    <f:param name="id" value="#{anagraphic.id}" />
+                </p:commandButton>
+            </p:column>
+            
+            <f:facet name="footer">
+                <p:commandButton value="#{message.i18n('default.new.label')}" actionListener="#{anagraphicMB.reset}" oncomplete="PF('anagraphicDialog').show()" icon="ui-icon-star" />
+            </f:facet>
+        </p:dataTable>
+
+        <p:confirmDialog global="true" closeOnEscape="true">
+            <p:commandButton value="#{message.i18n('default.yes.message')}" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+            <p:commandButton value="#{message.i18n('default.no.message')}" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+        </p:confirmDialog>
+
+	</h:form>
+
+    
+    <h:form id="anagraphicForm">                
+        <p:dialog header="Anagraphic Form" widgetVar="anagraphicDialog" closable="false" resizable="false" modal="true" closeOnEscape="true" >
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="firstName" value="#{message.i18n('anagraphic.firstName.label')}" />
+                <p:inputText id="firstName" value="#{anagraphicMB.anagraphic.firstName}" label="firstName"/>
+
+                <h:outputLabel for="surname" value="#{message.i18n('anagraphic.surname.label')}" />
+                <p:inputText id="surname" value="#{anagraphicMB.anagraphic.surname}"  label="surname" />
+       
+                <h:outputLabel for="date" value="date" />
+                <p:calendar locale="it" id="date" value="#{anagraphicMB.anagraphic.date}"  label="date" />
+                
+                <h:outputLabel for="decimal" value="decimal" />
+                <p:inputNumber id="decimal" value="#{anagraphicMB.anagraphic.decimal}"  label="decimal" />
+                
+                <h:outputLabel for="db" value="db" />
+                <p:inputNumber id="db" value="#{anagraphicMB.anagraphic.db}"  label="db" />
+                
+                <!-- togliere
+    Date date
+    Long number
+    Double db
+    BigDecimal decimal
+    Boolean test
+    char ch
+                -->
+                
+       
+                <!-- togliere -->
+                
+                <f:facet name="footer">
+                    <p:commandButton update=":anagraphicsForm:anagraphicsDT" value="#{message.i18n('default.save.button')}" action="#{anagraphicMB.save}" ajax="false" icon="ui-icon-disk" />
+                    <p:commandButton value="#{message.i18n('default.reset.button')}" actionListener="#{anagraphicMB.reset}" ajax="false" icon="ui-icon-cancel" />
+                </f:facet>
+            </h:panelGrid>
+        </p:dialog>
+    </h:form>
+</h:body>
+
+</html>
