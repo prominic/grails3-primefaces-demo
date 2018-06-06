@@ -28,7 +28,6 @@ class AnagraphicService {
         Anagraphic.withTransaction {
             Anagraphic.list(max: max, offset: offset, sort: sort, order: order)
         }
-        log.info "end"
     }
     
     def delete(Long id) {
@@ -56,7 +55,7 @@ class AnagraphicService {
         }
     }
     
-    def filter(Map filters, int max, int offset, String sort, String order) {
+    def filter(Map filters, int max, int offset, String sort, String sortOrder) {
         def c = Anagraphic.createCriteria()
         c.list (max: max, offset: offset) {
             and {
@@ -64,7 +63,8 @@ class AnagraphicService {
                     ilike(k, "%${v}%")
                 }
             }
-            order(sort, order)
+            order(sort, sortOrder)
         }
     }
 }
+

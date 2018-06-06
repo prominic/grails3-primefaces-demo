@@ -57,7 +57,7 @@ The resulting files are:
 * src/main/groovy/demo/beans/CarLazyDataModel.groovy
 * src/main/groovy/demo/beans/CarManagedBean.groovy
 
-### Update Config.groovy
+### Update application.yml
 
 Add the new package "demo.beans" to the grails.plugins.primefaces.beans.packages list in grails-app/conf/application.yml
 ```
@@ -65,7 +65,7 @@ grails:
     plugins:
         primefaces:
                 beans:
-                   packages: com.company.demo.beans,com.company.demo2.beans,demo.beans
+                   packages: com.company.demo.beans,demo.beans
 ```
 
 
@@ -88,7 +88,8 @@ import java.util.UUID
 class BootStrap {
  
     def init = { servletContext ->
-        ...
+
+        ... init already has code for Anagraphic.  Add the code below at the end of the block ...
  
         // initialize Car data
         def colors = ['Black', 'White', 'Green', 'Red', 'Blue', 'Orange', 'Silver', 'Yellow', 'Brown', 'Maroon']
