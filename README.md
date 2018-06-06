@@ -1,6 +1,6 @@
 # Summary
 
-Example project for [grails3-primefaces](TODO) plugin.
+Example project for [grails3-primefaces](https://github.com/prominic/grails3-primefaces) plugin.
 
 ## Dependencies
 
@@ -187,7 +187,7 @@ Open the new interface in a browser: [http://localhost:8080/faces/car/home.xhtml
 
 ## License
 
-Moonshine-IDE is licensed under the Apache License 2.0 - see the [LICENSE.md](TODO) file for details
+Moonshine-IDE is licensed under the Apache License 2.0 - see the [LICENSE.md](https://github.com/prominic/grails3-primefaces-demo/blob/master/LICENSE.MD) file for details
 
 ## Acknowledgments
 
