@@ -4,7 +4,7 @@ Example project for [grails3-primefaces](https://github.com/prominic/grails3-pri
 
 ## Dependencies
 
-This plugin was written and tested with Grails 3.3.3 and Java 8u131.
+This plugin was written and tested with Grails 3.3.6 and Java 8u131.
 
 ## Running the Example Interface
 

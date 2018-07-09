@@ -40,7 +40,7 @@ dependencies {
     compile "org.springframework.boot:spring-boot-autoconfigure"
     compile "org.grails:grails-core"
     compile "org.springframework.boot:spring-boot-starter-actuator"
-    compile "org.springframework.boot:spring-boot-starter-tomcat"
+    provided "org.springframework.boot:spring-boot-starter-tomcat"
     compile "org.grails:grails-web-boot"
     compile "org.grails:grails-logging"
     compile "org.grails:grails-plugin-rest"
@@ -50,7 +50,7 @@ dependencies {
     compile "org.grails:grails-plugin-url-mappings"
     compile "org.grails:grails-plugin-interceptors"
     compile "org.grails.plugins:cache"
-    compile "org.grails.plugins:async"
+    compile "org.grails.plugins:async:3.3.3.BUILD-SNAPSHOT"
     compile "org.grails.plugins:scaffolding"
     compile "org.grails.plugins:events"
     compile "org.grails.plugins:hibernate5"
@@ -88,7 +88,7 @@ dependencies {
     runtime "org.grails:grails-web-jsp:3.3.2.BUILD-SNAPSHOT"
 
 
-    compile "net.prominic.grails.plugins:grails3-primefaces:0.2"
+    compile "net.prominic.grails.plugins:grails3-primefaces-upgrade336:0.2.1"
 
 
 
