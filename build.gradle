@@ -10,7 +10,7 @@ buildscript {
     }
 }
 
-version "0.2"
+version "0.2.1"
 group "grails3-primefaces-demo"
 
 apply plugin:"eclipse"
@@ -88,7 +88,7 @@ dependencies {
     runtime "org.grails:grails-web-jsp:3.3.2.BUILD-SNAPSHOT"
 
 
-    compile "net.prominic.grails.plugins:grails3-primefaces-upgrade336:0.2.1"
+    compile "net.prominic.grails.plugins:grails3-primefaces:0.2.1"
 
 
 
